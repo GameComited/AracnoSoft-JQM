@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Personalice la directiva de seguridad de contenido en la etiqueta meta como sea necesario. Agregue "unsafe-inline" a default-src para permitir JavaScript insertado.
+        Para obtener más detalles, consulte http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: * 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/jquery.js"></script>
+        <script type="text/javascript" src="scripts/jquery.mobile.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+
+        <title>Aracnosoft CRM App</title>
+    </head>
+    <body>
+        <div id="deviceready">
+
+                <div data-role="page" id="inicio">
+                    <!--PAGINA 1-->
+                    <div data-role="header">
+                        <!--Header-->
+                        <h1>AracnoSoft</h1>
+                    </div><!-- /header -->
+                    <div role="main" class="ui-content">
+                        <!--Contendor Principal-->
+
+                        <form method="get" id="login_form" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" name="usuario" placeholder="Tu@correo.es" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+                                <input type="password" class="form-control" id="inputPassword" name="contrasena" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox"> Recordar
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" id="btnIniciar">Continuar</button>
+                            </div>
+                        </form>
+                        <br />
+                        <br />
+                        <a href="#home">Atajo al Home</a>
+
+                    </div><!-- /content -->
+                </div><!--FIN PAGINA 1-->
+
+                <div data-role="page" id="home">
+                    <!--PAGINA 2-->
+                    <div data-role="header">
+                        <!--Header-->
+                        <h1>AracnoSoft</h1>
+                        <!--/BotonMenu-->
+                        <a href="#popupMenu" data-rel="popup" class="ui-btn-right" data-role="button" data-inline="true" data-transition="slideup" data-icon="grid">Menu</a>
+                        <div data-role="popup" id="popupMenu" data-theme="d">
+                            <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                                <!--<li data-role="divider" data-theme="e">Choose an action</li>-->
+                                <li><a href="#">Item #1</a></li>
+                                <li><a href="#">Item #2</a></li>
+                                <li><a href="#">Item #3</a></li>
+                                <li><a href="#" id="btnSalir">Salir</a></li>
+                            </ul>
+                        </div><!--/BotonMenu-->
+                        <div data-role="navbar">
+                            <!--navabar-->
+                            <ul>
+                                <li><a href="#notificaciones" data-icon="info"></a></li>
+                                <li><a href="#historico" data-icon="clock"></a></li>
+                                <li><a href="#contactos" data-icon="user"></a></li>
+                            </ul>
+                        </div><!-- /navbar -->
+                    </div><!-- /header -->
+                    <div role="main" class="ui-content">
+                        <!--Contendor Principal-->
+                        <div id="salute" style="text-align:center;">Bienvenido </div>
+                    </div><!-- /content -->
+                </div><!--FIN PAGINA 2-->
+
+                <div data-role="page" id="contactos">
+                    <!--PAGINA 3-->
+                    <div data-role="header">
+                        <!--Header-->
+                        <h1>AracnoSoft</h1>
+                        <!--/BotonMenu-->
+                        <a href="#popupMenu2" data-rel="popup" class="ui-btn-right" data-role="button" data-inline="true" data-transition="slideup" data-icon="grid">Menu</a>
+                        <div data-role="popup" id="popupMenu2" data-theme="d">
+                            <ul data-role="listview" data-inset="true" style="min-width:210px;">
+                                <!--<li data-role="divider" data-theme="e">Choose an action</li>-->
+                                <li><a href="#">Item #1</a></li>
+                                <li><a href="#">Item #2</a></li>
+                                <li><a href="#">Item #3</a></li>
+                                <li><a href="#" id="btnSalir">Salir</a></li>
+                            </ul>
+                        </div><!--/BotonMenu-->
+                        <div data-role="navbar">
+                            <!--navabar-->
+                            <ul>
+                                <li><a href="#notificaciones" data-icon="info"></a></li>
+                                <li><a href="#historico" data-icon="clock"></a></li>
+                                <li><a href="#contactos" data-icon="user"></a></li>
+                            </ul>
+                        </div><!-- /navbar -->
+                    </div><!-- /header -->
+                    <div role="main" class="ui-content">
+                        <!--Contendor Principal-->
+                        <div data-role="navbar">
+                            <a href="#crearContacto" data-role="button" data-icon="plus" data-placement="right">Añadir Contactos</a>
+                        </div>
+                        <div class="listaC"><h3>Lista de Contactos</h3></div>
+                        <div id="listaresultado"></div>
+                    </div><!-- /content -->
+                </div><!--FIN PAGINA 3-->
+
+            </div><!--Fin OnDeviceReady-->
+    </body>
+</html>

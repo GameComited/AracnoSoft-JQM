@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Personalice la directiva de seguridad de contenido en la etiqueta meta como sea necesario. Agregue "unsafe-inline" a default-src para permitir JavaScript insertado.
+        Para obtener más detalles, consulte http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: * 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mobile.js"></script>
+    <script type="text/javascript" src="scripts/menu.js"></script>
+
+    <title>Aracnosoft CRM App</title>
+</head>
+<body>
+    <div id="deviceready">
+        <div id="menu">
+            <ul>
+                <li><a href="#" class="contentLink">Item #1 </a></li>
+                <li><a href="#" class="contentLink">Item #2 </a></li>
+                <li><a href="#" class="contentLink">Item #3</a></li>
+                <li><a href="#" class="contentLink" id="btnSalir">Salir </a></li>
+            </ul>
+        </div>
+        <div data-role="page" id="inicio">
+            <!--PAGINA 1-->
+            <div data-role="header">
+                <!--Header-->
+                <!--<a href="#" class="showMenu">Menu</a>-->
+                <h1>AracnoSoft</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <!--Contendor Principal-->
+
+                <form method="get" id="login_form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" name="usuario" placeholder="Tu@correo.es" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+                        <input type="password" class="form-control" id="inputPassword" name="contrasena" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Recordar
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="btnIniciar">Continuar</button>
+                    </div>
+                </form>
+                <br />
+                <br />
+                <a href="#home">Atajo al Home</a>
+
+            </div><!-- /content -->
+        </div><!--FIN PAGINA 1-->
+
+        <div data-role="page" id="home">
+            <!--PAGINA 2-->
+            <div data-role="header" data-position="fixed">
+                    <!--Header-->
+                <a href="#" class="showMenu">Menu</a>
+                <h1>AracnoSoft</h1>
+
+                <div data-role="navbar" data-position="fixed">
+                    <!--navabar-->
+                    <ul>
+                        <li><a href="#notificaciones" data-icon="info"></a></li>
+                        <li><a href="#historico" data-icon="clock"></a></li>
+                        <li><a href="#contactos" data-icon="user"></a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <!--Contendor Principal-->
+                <div id="salute" style="text-align:center;">Bienvenido </div>
+            </div><!-- /content -->
+        </div><!--FIN PAGINA 2-->
+
+        <div data-role="page" id="contactos">
+            <!--PAGINA 3-->
+            <div data-role="header" data-position="fixed">
+                <!--Header-->
+                <a href="#" class="showMenu">Menu</a>
+                <h1>AracnoSoft</h1>
+
+                <div data-role="navbar" data-position="fixed">
+                    <!--navabar-->
+                    <ul>
+                        <li><a href="#notificaciones" data-icon="info"></a></li>
+                        <li><a href="#historico" data-icon="clock"></a></li>
+                        <li><a href="#contactos" data-icon="user"></a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <!--Contendor Principal-->
+                <a href="#crearContacto" data-role="button" data-icon="plus">Añadir Contactos</a>
+                <div class="listaC"><h3>Lista de Contactos</h3></div>
+                <div id="listaresultado"></div>
+            </div><!-- /content -->
+        </div><!--FIN PAGINA 3-->
+
+        <div data-role="page" id="crearContacto">
+            <!--PAGINA 4-->
+            <div data-role="header" data-position="fixed">
+                <!--Header-->
+                <a href="#" class="showMenu">Menu</a>
+                <h1>AracnoSoft</h1>
+
+                <div data-role="navbar" data-position="fixed">
+                    <!--navabar-->
+                    <ul>
+                        <li><a href="#notificaciones" data-icon="info"></a></li>
+                        <li><a href="#historico" data-icon="clock"></a></li>
+                        <li><a href="#contactos" data-icon="user"></a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <!--Contendor Principal-->
+                <fieldset>
+                    <div class="listaC"><h3>Agrega a un nuevo contacto</h3></div>
+
+                    <!-- Text input-->
+                    <form class="listaC">
+                        <div class="form-group">
+                            <label>Nombre de la Empresa</label>
+                            <div>
+                                <div>
+                                    <input name="empresa" placeholder="Nombre de la empresa" data-clear-btn="true" type="text" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <div>
+                                <div>
+                                    <input name="email" placeholder="E-Mail" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label>tel&eacute;fono</label>
+                            <div>
+                                <div class="input-group">
+                                    <input name="telefono" placeholder="(+34)654123123" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div class="form-group">
+                            <label>Pa&iacute;s</label>
+                            <div>
+                                <div>
+                                    <input name="pais" placeholder="País" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label>Direcci&oacute;n</label>
+                            <div>
+                                <div>
+                                    <input name="direccion" placeholder="Direcci&oacute;n" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label>Ciudad</label>
+                            <div>
+                                <div>
+                                    <input name="ciudad" placeholder="ciudad" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label>Provincia</label>
+                            <div>
+                                <div >
+                                    <input name="provincia" placeholder="Provincia" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label>C&oacute;digo Postal</label>
+                            <div>
+                                <div>
+                                    <input name="codigop" placeholder="Código Postal" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label class="col-md-4 control-label">Persona de contacto</label>
+                            <div>
+                                <div>
+                                    <input name="perCon" placeholder="Persona de contacto" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+
+                        <div>
+                            <label>DNI / NIF / CIF</label>
+                            <div>
+                                <div>
+                                    <input name="dni" placeholder="12345678-R" data-clear-btn="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text area -->
+
+                        <div>
+                            <label>Anotaciones</label>
+                            <div>
+                                <div>
+                                    <textarea data-clear-btn="true" name="anotacion" placeholder="Escribe un comentario"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                                                
+                        <!-- Button -->
+                        <div>
+                            <label></label>
+                            <div>
+                                <button type="button" id="botonguardar">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+            </div><!-- /content -->
+        </div><!--FIN PAGINA 4-->
+
+
+
+
+
+
+
+
+
+    </div><!--Fin OnDeviceReady-->
+</body>
+</html>
